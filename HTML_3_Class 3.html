@@ -1,0 +1,203 @@
+<html>
+<head>
+	<title>Table</title>
+</head>
+<body>
+
+<!-- border: add border to table -->
+	<table border = "1px">
+		<!-- tr: table row -->
+		<tr>
+			<!-- th: table heading -->
+			<th>Name</th>
+			<th>Sex</th>
+			<th>Age</th>
+		</tr>	
+		<tr>
+			<!-- td:table data -->
+			<td>David</td>
+			<td>Male</td>
+			<td>50</td>
+		</tr>	
+		<tr>
+			<td>Jack</td>
+			<td>Female</td>
+			<td>30</td>
+		</tr>	
+	</table>
+	<br>
+	<br>
+	
+
+	<!-- h5 standards: recommended way to write table -->
+	<table border = "1px" width = "100%">
+		<caption>This is my h5 table</caption>
+		<!-- thead -->
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Sex</th>
+				<th>Age</th>
+			</tr>	
+		</thead>
+
+		<!-- tbody -->
+		<tbody>
+			<tr>
+				<td>David</td>
+				<td>Male</td>
+				<td>50</td>
+			</tr>	
+			<tr>
+				<td>Jack</td>
+				<td>Female</td>
+				<td>30</td>
+			</tr>	
+		</tbody>
+	</table>
+	<br>
+	<br>
+
+
+<!-- colspan rowspan
+		name     phone
+		david    555|666
+			     777|888
+ -->
+ 		<table border="1px" width="100%">
+			<caption>colspan and rowspan</caption>
+			<!-- colgroup MUST be right after caption!!! -->
+			<colgroup>
+				<col style="background-color:yellow">
+				<col style="background-color:red">
+				<col style="background-color:green">
+			</colgroup>
+		<!-- thead -->
+		<thead>
+			<tr>
+				<th>Name</th>
+				<!-- colspan: split to # columns -->
+				<th colspan ="2">Phonenumber</th>
+			</tr>	
+		</thead>
+
+		<!-- tbody -->
+		<tbody>
+			<tr>
+				<!-- rowspan: split to # rows -->
+				<td rowspan="2">David</td>
+				<td>555</td>
+				<td>666</td>
+			</tr>	
+			<tr>
+				<td>777</td>
+				<td>888</td>
+			</tr>	
+		</tbody>
+ 		</table>
+ 		<br>
+
+ 		
+ 		<h1>Sign In</h1>
+ 		<!-- 2 important attributes in <form> tag
+ 			1) method: method ="GET": HTTP calls ...
+ 				GET: search
+ 				POST: database
+ 				PUT: edit
+ 			2) action: where to go after clicked on submit
+ 		 -->
+ 		<form method="GET" action="http://yahoo.com"> 
+ 			<!-- input element is inline element -->
+ 			<!-- 3 important attributes in <input> tag
+ 					1) type: input type
+					2) name: important for identifying what you're trying to search 
+					2) placeholder-->
+			<!-- label adds "xxxx" before input -->
+ 			<label>Username:
+ 				<input type ="text" name="firstname" placeholder="firstname....">
+ 			</label>
+ 			
+ 			<label>Password:
+ 				<input type="password" name="pwd" placeholder = "password....">
+ 			</label>
+ 			
+ 			<!-- <label>Color:</label> -->
+ 			<!-- <input type="color" name="color" placeholder="color....">			 -->
+ 			<input type="submit">	
+			<!-- <button>Submit me</button> same as the type="submit" from above (but allows you to rename the submit button name-->
+ 		</form>
+
+ 		<h1>Sign In2</h1>
+
+ 		<form method="GET" action="http://yahoo.com"> 
+ 			<!-- <label> for attribute: for ="need to specifiy which id for input" MUST match what you specified in the <input> tag id attribute -->
+ 			<label for="firstname">Username:</label>
+ 			<!-- Simple validation: add required attribute (required/ required ="true")
+				- Will prevent you from submitting if you didn't fill out all fields
+				- Will need to match the specified type format as well (eg. email must contain @)
+ 			 -->
+ 				<input type ="text" id="firstname" name="firstname"placeholder="firstname...." required="true" pattern=".{5,10}" title = "5-10char"> 
+ 				<!-- pattern: to specify how long the string will be
+ 						title: to specify message when input didn't meet pattern requirements -->
+ 			<label for ="pwd">Password:</label>
+ 				<input type="password" id="pwd" name="pwd"placeholder = "password...." required="true">
+
+			<label for ="email">Email:</label>
+				<input type="email" id="email"name="email" required="true">
+
+ 			<input type="submit">	
+ 		</form>
+ 		<br>
+ 		<br>
+
+
+ 		<h1>Pet Choices: radio and checkbox</h1>
+ 		<form method="GET" action="http://yahoo.com"> 
+ 			<!-- radio button:
+ 					label: for
+ 					input: type = radio, id, name=, value= 
+ 					checked/checked="true": will pre-select a button
+ 					eg. https://www.yahoo.com/?pets=cats -->
+ 			
+ 			<!-- radiobutton -->
+ 			<h2>Please Select Your Pet:</h2>
+ 				<label for="cats">Cats</label>
+ 				<input type="radio" id="cats" name="pets" value ="cats" checked>
+
+ 				<label for="dogs">Dogs:</label>
+ 				<input type="radio" id="dogs" name="pets" value ="dogs" >
+
+ 				
+				<!-- checkbox -->
+					<div>
+ 					<label for="cfm">I confirm my choice</label>
+ 					<input type="checkbox" id = "cfm" name="cfm" value="yes" required>
+					</div>
+
+
+ 				<input type="submit">
+ 		</form>
+
+<!-- dropdown: select tag -->
+		<h1>What's you mood now?</h1>
+		<form action="http:yahoo.com" method="GET">
+
+			<!-- put name tag on the select element 
+				options selected/selected="true": will pre-select the value
+				eg. https://www.yahoo.com/?moods=sad-->
+			<select name="moods">
+				<option value="happy">:)</option>
+				<option value="heart"><3</option>
+				<option selected value="sad">:(</option>
+
+				<input type="submit">
+
+			</select>
+
+		</form>
+
+
+
+
+</body>
+</html>
